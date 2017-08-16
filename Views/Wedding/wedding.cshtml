@@ -1,0 +1,10 @@
+@model weddingPlan.Models.WeddingReg
+<form asp-controller="Wedding" asp-action="addWedding" method="POST">
+    Wedder One <input type="text" asp-for="wedderOne"> <span asp-validation-for="wedderOne"> </span>
+    Wedder Two <input type="text" asp-for="wedderTwo"> <span asp-validation-for="wedderTwo"> </span>
+    Date <input type="date" asp-for="date"> <span asp-validation-for="date"> </span>
+    address <input type="text" asp-for="address"> <span asp-validation-for="address"> </span>
+    <input type="submit" value="SUBMIT">
+</form>
+
+@ViewBag.Error

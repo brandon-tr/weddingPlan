@@ -1,0 +1,11 @@
+<h1>@ViewBag.AllGuest[0].wedderOne  @ViewBag.AllGuest[0].wedderTwo </h1>
+<h3>DATE: @ViewBag.AllGuest[0].date.ToString("MMMM ddd, yyyy")</h3>
+
+@{
+    foreach(var i in @ViewBag.AllGuest[0].guests){
+        <p>
+            @i.user.firstName
+        </p>
+    }
+}
+

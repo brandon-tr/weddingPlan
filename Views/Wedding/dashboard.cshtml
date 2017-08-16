@@ -1,0 +1,42 @@
+<h1> Welcome to Wedding planner </h1>
+<h1> @ViewBag.Id </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach(var i in ViewBag.AllWeddings){
+                bool positive = false;
+                <tr>
+                    <td><a href="wedding/@i.weddingId">@i.wedderOne & @i.wedderTwo</a></td>
+                    <td>@i.date</td>
+                    <td>@i.guests.Count</td>
+                    <td>
+                    @foreach(var x in i.guests){
+                        @if(x.userId == ViewBag.Id){
+                            positive = true;
+                        }
+                    }
+                    @if(i.creatorId == @ViewBag.Id){
+                        <p> <a href="deleteWedding/@i.weddingId">  Delete Wedding </a></p>
+                    }
+                    else if(positive){
+                        <p><a href="UNRSVP/@i.weddingId/@ViewBag.Id">Un-RSVP </a></p>
+                    }else{
+                        <p><a href="RSVP/@i.weddingId">RSVP </a></p>
+                    }
+                    </td>
+                </tr>
+            }
+        }
+        
+    </tbody>
+</table>
+
+<a href="wedding"> Add a new wedding </a>
